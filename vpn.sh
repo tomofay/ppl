@@ -343,9 +343,9 @@ clear
 izinsc="https://github.com/hokagelegend9999/ijin/raw/refs/heads/main/alpha"
 # USERNAME
 rm -f /usr/bin/user
-username=$(curl $izinsc | grep $MYIP | awk '{print $2}')
+username="Admin-Tomofay"
 echo "$username" >/usr/bin/user
-expx=$(curl $izinsc | grep $MYIP | awk '{print $3}')
+expx="2030-12-31"
 echo "$expx" >/usr/bin/e
 # DETAIL ORDER
 username=$(cat /usr/bin/user)
@@ -581,7 +581,7 @@ cat > /etc/rc.local <<-END
 #!/bin/sh -e
 # rc.local
 # By default this script does nothing.
-# exit 0
+# # exit 0
 END
 
 # Ubah izin akses
@@ -793,7 +793,7 @@ print_install "Menginstall banner"
 # Instal DDOS Flate
 if [ -d '/usr/local/ddos' ]; then
 	echo; echo; echo "Please un-install the previous version first"
-	# exit 0
+	# # exit 0
 else
 	mkdir /usr/local/ddos
 fi
@@ -971,7 +971,7 @@ cat >/etc/rc.local <<EOF
 iptables -I INPUT -p udp --dport 5300 -j ACCEPT
 iptables -t nat -I PREROUTING -p udp --dport 53 -j REDIRECT --to-ports 5300
 systemctl restart netfilter-persistent
-# exit 0
+# # exit 0
 EOF
 
     chmod +x /etc/rc.local
@@ -1082,7 +1082,7 @@ EOF
     cat > /usr/local/bin/zivpn-sync << 'EOF'
 #!/bin/bash
 CONFIG_FILE="/etc/zivpn/config.json"
-if [ ! -f "$CONFIG_FILE" ]; then # exit 0; fi
+if [ ! -f "$CONFIG_FILE" ]; then # # exit 0; fi
 
 while IFS=: read -r username _ uid _ _ _ _; do
     if [[ "$uid" -ge 1000 && "$username" != "nobody" && "$username" != "zi" ]]; then
